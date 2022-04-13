@@ -1,0 +1,28 @@
+{
+  "name": "bakgul/file-content",
+  "description": "A package to handle file content and related tasks.",
+  "authors": [
+    {
+      "name": "Bulent Akgul",
+      "email": "bulent.akgul@me.com"
+    }
+  ],
+  "require": {},
+  "require-dev": {
+    "bakgul/kernel": "@dev",
+    "bakgul/file-history": "@dev"
+  },
+  "autoload": {
+    "psr-4": {
+      "Bakgul\\FileContent\\": "src/",
+      "Bakgul\\FileContent\\Tests\\": "tests/"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Bakgul\\FileContent\\FileContentServiceProvider"
+      ]
+    }
+  }
+}
