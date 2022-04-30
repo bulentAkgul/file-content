@@ -69,7 +69,7 @@ class Register
     private static function insertBlock(array $specs, string|array $add = '', string $key = ''): void
     {
         [$start, $indentation, $end, $block] = GetCodeBlock::_(self::$fileContent, $specs);
-        ray([$start, $indentation, $end, $block, $add, $key, $specs]);
+
         self::purifyContent($start, $end);
 
         self::regenerateContent($start, self::makeBlock($block, $add, $key, $indentation, $specs));
