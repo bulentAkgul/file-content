@@ -1,6 +1,6 @@
 {
   "name": "bakgul/file-content",
-  "description": "A package to handle file content and related tasks.",
+  "description": "A helper package to handle file content and related tasks.",
   "authors": [
     {
       "name": "Bulent Akgul",
