@@ -27,7 +27,7 @@ class MutateIndentation
             if ($indentation) return $indentation;
         }
 
-        return Settings::get('main.indentation.' . (str_contains($content[0], 'php') ? 'php' : 'other'));
+        return Settings::get('indentations.' . (str_contains($content[0], 'php') ? 'php' : 'other'));
     }
 
     private static function setContent(array $content): array
