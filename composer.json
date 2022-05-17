@@ -1,6 +1,6 @@
 {
   "name": "bakgul/file-content",
-  "description": "A helper package to handle file content and related tasks.",
+  "description": "This is a helper package, and it can't be used independently. Its purpose is to get/set/modify files' content when they are created/deleted/updated through the commands that are shipped with the packages, which are part of Packagified Laravel.",
   "authors": [
     {
       "name": "Bulent Akgul",
