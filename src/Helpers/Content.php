@@ -18,7 +18,7 @@ class Content
 
     public static function writeJson(string $path, array $content = []): void
     {
-        file_put_contents($path, json_encode($content, JSON_PRETTY_PRINT));
+        file_put_contents($path, str_replace('\/', '/', json_encode($content, JSON_PRETTY_PRINT)));
     }
 
     public static function purify(array $content, int $start, int $end): array
