@@ -102,6 +102,6 @@ class Register
 
     private static function write()
     {
-        WriteToFile::handle(self::$fileContent, self::$request['attr']['target_file']);
+        WriteToFile::_(self::$fileContent, self::$request['attr']['target_file']);
     }
 }

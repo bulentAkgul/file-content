@@ -7,7 +7,7 @@ use Bakgul\FileHistory\Services\LogServices\ForUndoingLogService;
 
 class WriteToFile
 {
-    public static function handle($content, $file)
+    public static function _($content, $file)
     {
         self::writeLog($file);
 
@@ -26,7 +26,7 @@ class WriteToFile
         return !file_exists($file);
     }
 
-    protected static function writeContent($content, $file)
+    private static function writeContent($content, $file)
     {
         Content::write($file, $content, '');
     }
