@@ -7,17 +7,17 @@ use Bakgul\FileHistory\Services\LogServices\ForUndoingLogService;
 
 class WriteToFile
 {
-    public static function _($content, $file)
+    public static function _($content, $file, $isJson = false)
     {
         self::writeLog($file);
 
-        self::writeContent($content, $file);
+        self::writeContent($content, $file, $isJson);
     }
 
     private static function writeLog(string $file)
     {
         if (self::isNotLoggable($file)) return;
-        
+
         ForUndoingLogService::set($file, false, false);
     }
 
@@ -26,8 +26,10 @@ class WriteToFile
         return !file_exists($file);
     }
 
-    private static function writeContent($content, $file)
+    private static function writeContent($content, $file, $isJson)
     {
-        Content::write($file, $content, '');
+        $isJson
+            ? Content::writeJson($file, $content)
+            : Content::write($file, $content, '');
     }
 }
