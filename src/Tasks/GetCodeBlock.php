@@ -6,8 +6,6 @@ class GetCodeBlock
 {
     public static function _(array $content, array $specs): array
     {
-        if (!array_key_exists('jump', $specs)) ray(debug_backtrace());
-
         return [
             $s = FindIndex::start($content, $specs['jump'], 0, ...$specs['start']),
             $i = MutateIndentation::get($content),
