@@ -11,12 +11,14 @@ class FindIndex
     private static $content;
     private static $specs;
 
-    public static function start(array $content, string $search, int $add = 0)
+    public static function start(array $content, string $jump = '', int $first = 0, string $search = '', int $add = 0)
     {
         if (empty($content)) return 0;
 
         foreach ($content as $i => $line) {
-            if (self::isStart($line, $search)) return $i + $add;
+            if (self::isNotStart($line, $search, $i, $first)) continue;
+
+            return $jump ? self::start($content, '', $i, $jump, $add) : $i + $add;
         }
 
         return 0;
@@ -46,9 +48,9 @@ class FindIndex
         return 0;
     }
 
-    public static function isStart(string $line, string $search): bool
+    public static function isNotStart(string $line, string $search, int $index, int $first): bool
     {
-        return str_contains($line, $search);
+        return !str_contains($line, $search) || $first > $index;
     }
 
     public static function isEnd(string $line, string $search, string $indentation, int $index, int $ref, bool $isStrict = true): bool
